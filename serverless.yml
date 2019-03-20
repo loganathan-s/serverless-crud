@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: dynamodb-crud-service # NOTE: update this with your service name
+service: dynamodb-service # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -89,7 +89,7 @@ functions:
     handler: users/get.get
     events:
       - http:
-          path: users/{id}
+          path: users/{email}
           method: get
           cors: true
   list:
@@ -103,7 +103,7 @@ functions:
     handler: users/delete.delete
     events:
       - http:
-          path: users/{id}
+          path: users/{email}
           method: delete
           cors: true                   
 #    The following are a few example events you can configure

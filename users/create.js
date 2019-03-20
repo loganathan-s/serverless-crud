@@ -27,9 +27,13 @@ module.exports.create = (event, context, callback) => {
 			console.error(error);
 			callback(new Error('Couldn\'t create user, Db error'));	
 			return;
-		} else {
-			callback(null, "Data Created")
 		}
-	})
+		const response = { 
+			statusCode: 200,
+			body: JSON.stringify(params.Item)
+		};
+		callback(null, response);
+	});
 
+	
 }

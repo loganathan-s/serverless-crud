@@ -27,15 +27,13 @@ provider:
     - Effect: "Allow"
       Action:
         - dynamodb:Query
-        - dynamodb:*
-        - dynamodb:Query
         - dynamodb:Scan
         - dynamodb:GetItem
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
     # To enable access to the dynamo db table    
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/{self:provider.environment.DYNAMO_DBTABLE}"
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMO_DBTABLE}"
 
   environment:
     DYNAMO_DBTABLE: ${self:service}-${opt:stage, self:provider.stage}-users
